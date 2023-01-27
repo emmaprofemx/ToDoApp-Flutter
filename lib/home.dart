@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:todoapp/colors.dart';
+import 'package:todoapp/todo_item.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key});
+  const Home({super.key}); 
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +13,46 @@ class Home extends StatelessWidget {
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
       body: Container(
-      padding: EdgeInsets.symmetric(horizontal: 15),
+      padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15,),
       child: Column(
         children: [
           searchBox(),
+          Expanded(child: ListView(
+            children: [
+              Container(
+                margin: EdgeInsets.only(
+                  top: 50,
+                  bottom: 20,
+                ),
+                child: Text('All ToDos' ,
+                style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.w500,
+                ),),
+              ) ,
+              ToDoItem(),
+              ToDoItem(),
+              ToDoItem(),
+              ToDoItem(),
+              ToDoItem(),
+              ToDoItem(),
+              ToDoItem(),
+            ],
+          )),
         ],
+
+
       ),
       ),
     );
   }
+
+
 Widget searchBox(){
   return Container(
             //Separando un poco del borde de izquierda a derecha
             padding: EdgeInsets.symmetric(horizontal: 15),
+            //Dandole estilo al textField
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20)
@@ -49,6 +77,7 @@ Widget searchBox(){
             ),
           );
 }
+
 
 //Personalizacion del AppBar
   AppBar _buildAppBar() {
