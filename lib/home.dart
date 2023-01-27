@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:todoapp/colors.dart';
+import 'package:todoapp/todo.dart';
 import 'package:todoapp/todo_item.dart';
 
 class Home extends StatelessWidget {
-  const Home({super.key}); 
+  Home({super.key}); 
+  //Creamos el objetoo todoList , eh invocamos el metodo
+  final todosList = ToDo.todoList();
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +33,12 @@ class Home extends StatelessWidget {
                   fontWeight: FontWeight.w500,
                 ),),
               ) ,
-              ToDoItem(),
-              ToDoItem(),
-              ToDoItem(),
-              ToDoItem(),
-              ToDoItem(),
-              ToDoItem(),
-              ToDoItem(),
+              for(ToDo todo in todosList)
+              //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
+              ToDoItem(todo: todo,),
+              
+              
+      
             ],
           )),
         ],

@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:todoapp/colors.dart';
+import 'package:todoapp/todo.dart';
 
 class ToDoItem extends StatelessWidget {
-  const ToDoItem({super.key});
+  final ToDo todo;
+  const ToDoItem({Key? key , required this.todo}) :super(key:key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,12 +31,16 @@ class ToDoItem extends StatelessWidget {
         leading: Icon(Icons.check_box , color: tdBlue,),
         //Linea para asignar un texto a Container , posteriormente se le agregan mas atributos
         title: Text(
-          'Estudiar más flutter' ,
+          todo.todoText!,
           //Le damos un estilo al texto que se encuentra en la nota
           style: TextStyle(
             fontSize: 16 , 
             color: tdBlack , 
-            decoration: TextDecoration.lineThrough,
+            /*
+            La linea de abajo hace lo sigueinte , si hay una tarea completada
+            el texto estara subrayada con una linea; en caso contrario no la tendra.
+            */
+            decoration: todo.isDone ? TextDecoration.lineThrough : null,
           )),
           //Agregamos el boton de eliminar 
           //Lo que estamos agregando de bajo como tal solo es la base del boton
@@ -56,7 +62,6 @@ class ToDoItem extends StatelessWidget {
                 print('Clicked on Delete Item,');
               }, ),
           ),
-
       ),
     );
   }
