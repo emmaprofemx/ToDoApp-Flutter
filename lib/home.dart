@@ -15,36 +15,67 @@ class Home extends StatelessWidget {
     return Scaffold(
       backgroundColor: tdBGColor,
       appBar: _buildAppBar(),
-      body: Container(
-      padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15,),
-      child: Column(
+      body: Stack(
         children: [
-          searchBox(),
-          Expanded(child: ListView(
+          Container(
+          padding: EdgeInsets.symmetric(horizontal: 15 , vertical: 15,),
+          child: Column(
             children: [
-              Container(
-                margin: EdgeInsets.only(
-                  top: 50,
-                  bottom: 20,
-                ),
-                child: Text('All ToDos' ,
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
-                ),),
-              ) ,
-              for(ToDo todo in todosList)
-              //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
-              ToDoItem(todo: todo,),
-              
-              
-      
+              searchBox(),
+              Expanded(child: ListView(
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(
+                      top: 50,
+                      bottom: 20,
+                    ),
+                    child: Text('All ToDos' ,
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.w500,
+                    ),),
+                  ) ,
+                  for(ToDo todo in todosList)
+                  //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
+                  ToDoItem(todo: todo,),
+                  
+                  
+          
+                ],
+              )),
             ],
-          )),
+
+
+          ),
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Row(children: [
+              Expanded(child: Container(margin: EdgeInsets.only(
+              bottom: 20 ,
+              right: 20 , 
+              left: 20,),
+              padding: EdgeInsets.symmetric(horizontal: 20 , vertical: 5 ),
+              decoration: BoxDecoration(
+                color: Colors.white ,
+                boxShadow: const [BoxShadow(
+                  color: Colors.grey , 
+                  offset: Offset(0.0, 0.0) , 
+                  blurRadius: 10.0 ,
+                  spreadRadius: 0.0,
+                ) ,] ,
+                borderRadius: BorderRadius.circular(10) ,
+              ),
+              child: TextField(
+                
+                decoration: InputDecoration(
+                  hintText: 'Agregar una nueva tarea' , 
+                  border:  InputBorder.none
+                ),
+              ),))
+            ],),
+          ),
         ],
-
-
-      ),
       ),
     );
   }
