@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
                       top: 50,
                       bottom: 20,
                     ),
-                    child: Text('All ToDos' ,
+                    child: Text('ACTIVIDADES' ,
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w500,
@@ -43,8 +43,9 @@ class _HomeState extends State<Home> {
                   ) ,
                   for(ToDo todo in todosList)
                   //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
-                  ToDoItem(todo: todo,onToDoChanged: _handleToDoChange , 
-                  onDeleteItem: () {},),
+                  ToDoItem(
+                  todo: todo,onToDoChanged: _handleToDoChange , 
+                  onDeleteItem: _deleteToDoItem,),
                   
                   
           
@@ -108,11 +109,17 @@ class _HomeState extends State<Home> {
 
 void _handleToDoChange(ToDo todo){
   setState(() {
+    //Se inicia como falso
     todo.isDone = !todo.isDone;
   });
-
 }
 
+//Creacion de metodo para eliminar una nota
+void _deleteToDoItem(String id){
+  setState(() {
+    todosList.removeWhere((item) => item.id == id);
+  }); 
+}
 
 Widget searchBox(){
   return Container(
