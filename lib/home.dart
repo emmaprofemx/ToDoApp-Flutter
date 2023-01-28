@@ -15,6 +15,17 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   //Creamos el objetoo todoList , eh invocamos el metodo
   final todosList = ToDo.todoList();
+  //Creamos una list de tipo ToDo
+  List<ToDo> _foundToDo = [];
+  final _todoController = TextEditingController();
+  bool _validate = false;
+
+@override
+  void initState() {
+    // TODO: implement initState
+    _foundToDo = todosList;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +52,12 @@ class _HomeState extends State<Home> {
                       fontWeight: FontWeight.w500,
                     ),),
                   ) ,
-                  for(ToDo todo in todosList)
+                  //FOOOOOOOR ***************
+                  for(ToDo todoo in _foundToDo)
                   //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
                   ToDoItem(
-                  todo: todo,onToDoChanged: _handleToDoChange , 
+                  todo: todoo,
+                  onToDoChanged: _handleToDoChange , 
                   onDeleteItem: _deleteToDoItem,),
                   
                   
@@ -75,9 +88,10 @@ class _HomeState extends State<Home> {
                 borderRadius: BorderRadius.circular(10) ,
               ),
               child: TextField(
-                
+                controller: _todoController,
                 decoration: InputDecoration(
                   hintText: 'Agregar una nueva tarea' , 
+                  errorText: _validate ? 'Value Cant be Empty' : null,
                   border:  InputBorder.none
                 ),
               ),)) , 
@@ -91,7 +105,10 @@ class _HomeState extends State<Home> {
               ),
               child: ElevatedButton(
                 child: Text('+' , style: TextStyle(fontSize: 40 ,),),
-                onPressed: () {},
+                onPressed: () {
+                  //Hacemos uso de la funcion y le pasamos como parametro , el texto.
+                  _addToDoItem(_todoController.text);
+                },
                 style: ElevatedButton.styleFrom(
                   primary: tdBlue,
                   minimumSize: Size(60, 60) , 
@@ -121,6 +138,37 @@ void _deleteToDoItem(String id){
   }); 
 }
 
+//Funcion para agregar notas
+//En este caso , el id se genera dependiendo de los microsegundos en que se genero
+//Asi en ciert
+void _addToDoItem(String toDo){
+  setState(() {
+  todosList.add(ToDo(id: DateTime.now().microsecondsSinceEpoch.toString(), 
+  todoText: toDo,
+  ));
+  });
+  //Limpiamos el campo
+  _todoController.clear();
+}
+
+void _runFilter(String enteredKeyword){
+  List<ToDo> results = [];
+  if(enteredKeyword.isEmpty){
+    results = todosList;
+  } else{
+    results = todosList
+    .where((item) => item.todoText!
+    .toLowerCase()
+    .contains(enteredKeyword.toLowerCase()))
+    .toList();
+  }
+
+  setState(() {
+    _foundToDo =results;
+  });
+}
+
+
 Widget searchBox(){
   return Container(
             //Separando un poco del borde de izquierda a derecha
@@ -132,6 +180,7 @@ Widget searchBox(){
             ),
             //Personalizando el txtField
             child: TextField(
+              onChanged: ((value) => _runFilter(value)),
               decoration: InputDecoration(
                 contentPadding: EdgeInsets.all(0), 
                 //Agregando el boton de la lupa
