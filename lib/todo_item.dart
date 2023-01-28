@@ -6,7 +6,17 @@ import 'package:todoapp/todo.dart';
 
 class ToDoItem extends StatelessWidget {
   final ToDo todo;
-  const ToDoItem({Key? key , required this.todo}) :super(key:key);
+
+  final onToDoChanged;
+   //Varibale para borrar el Item 
+    final onDeleteItem;
+
+  
+  const ToDoItem({
+    Key? key , required this.todo ,
+    required this.onToDoChanged ,
+    required this.onDeleteItem ,
+    }) :super(key:key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +29,8 @@ class ToDoItem extends StatelessWidget {
       child: ListTile(
         //Imprimeros un mensaje en consola para verificar que si este reaccionando
         onTap: () {
-          print('Clicked on Todo Item,');
+        onToDoChanged(todo);
+         // print('Clicked on Todo Item,');
         },
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
@@ -28,7 +39,15 @@ class ToDoItem extends StatelessWidget {
         tileColor: Colors.white,
         //Hasta aqui arriba se esta creando la base
         //Abajo le estamos dando propieidades al boton de la palomita
-        leading: Icon(Icons.check_box , color: tdBlue,),
+        leading: Icon(
+          //La linea de abajo establecemos lo siguiente
+          /*
+          Una vezz hecha la tarea , el usuario preciona lo que viene siendo la casilla
+          ; la casilla se vuelve true se subraya el texto y el icono cambia , de lo contrario
+          el icono se queda en blanco.
+          */
+          todo.isDone ? Icons.check_box : Icons.check_box_outline_blank , 
+          color: tdBlue,),
         //Linea para asignar un texto a Container , posteriormente se le agregan mas atributos
         title: Text(
           todo.todoText!,

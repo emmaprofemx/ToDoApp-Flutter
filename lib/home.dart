@@ -5,8 +5,14 @@ import 'package:todoapp/colors.dart';
 import 'package:todoapp/todo.dart';
 import 'package:todoapp/todo_item.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   Home({super.key}); 
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   //Creamos el objetoo todoList , eh invocamos el metodo
   final todosList = ToDo.todoList();
 
@@ -37,7 +43,8 @@ class Home extends StatelessWidget {
                   ) ,
                   for(ToDo todo in todosList)
                   //Obtenemos los mensajes de los objetos creados dentro de la clase todo 
-                  ToDoItem(todo: todo,),
+                  ToDoItem(todo: todo,onToDoChanged: _handleToDoChange , 
+                  onDeleteItem: () {},),
                   
                   
           
@@ -99,6 +106,13 @@ class Home extends StatelessWidget {
     );
   }
 
+void _handleToDoChange(ToDo todo){
+  setState(() {
+    todo.isDone = !todo.isDone;
+  });
+
+}
+
 
 Widget searchBox(){
   return Container(
@@ -129,7 +143,6 @@ Widget searchBox(){
             ),
           );
 }
-
 
 //Personalizacion del AppBar
   AppBar _buildAppBar() {
