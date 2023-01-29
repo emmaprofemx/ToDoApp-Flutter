@@ -19,9 +19,18 @@ class _HomeState extends State<Home> {
   List<ToDo> _foundToDo = [];
   final _todoController = TextEditingController();
   bool _validate = false;
-
+  //Definimos una variable boleana en falsa para que el boton este desactivado al inicio
+  bool isButtonActive = false;
 @override
   void initState() {
+    _todoController.addListener(() {
+    isButtonActive = _todoController.text.isNotEmpty;
+
+    setState(() {
+      this.isButtonActive = isButtonActive;
+    });
+
+    });
     // TODO: implement initState
     _foundToDo = todosList;
     super.initState();
@@ -91,13 +100,12 @@ class _HomeState extends State<Home> {
                 controller: _todoController,
                 decoration: InputDecoration(
                   hintText: 'Agregar una nueva tarea' , 
-                  errorText: _validate ? 'Value Cant be Empty' : null,
                   border:  InputBorder.none
                 ),
               ),)) , 
               //Creacion del boton agregar
 
-            //Inico del botton
+            //~~~~Inico del botton
             Container(
               margin: EdgeInsets.only(
                 bottom: 20 , 
@@ -105,10 +113,18 @@ class _HomeState extends State<Home> {
               ),
               child: ElevatedButton(
                 child: Text('+' , style: TextStyle(fontSize: 40 ,),),
-                onPressed: () {
+                /*onPressed: () {
                   //Hacemos uso de la funcion y le pasamos como parametro , el texto.
                   _addToDoItem(_todoController.text);
-                },
+                }*/
+                
+                onPressed: isButtonActive ? () {
+                  setState(() {
+                    isButtonActive = false;
+                    _addToDoItem(_todoController.text);
+                  });
+                } 
+                : null,
                 style: ElevatedButton.styleFrom(
                   primary: tdBlue,
                   minimumSize: Size(60, 60) , 
@@ -116,7 +132,7 @@ class _HomeState extends State<Home> {
                 ),
                 ),
             )
-            //Fin del boton
+            //~~~~~Fin del boton
             ],),
           ),
         ],
