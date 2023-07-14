@@ -5,4 +5,5 @@ En este repositorio se realizo un proyecto "To Do" en el cual el usuario puede a
 ## Ventana de inicio de la App
 
 Se puede observar una captura de pantalla del inicio de la aplicación.
-![Interfaz principal](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/ventanaprincipal.png)
+
+![Interfaz principal](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/vtn75menos.png)
