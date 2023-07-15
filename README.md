@@ -23,7 +23,7 @@ El usuario puede buscar una nota , en la barra superior ingresa la palabra y le 
 
 ## Realizado
 
-Una vez que el usuario haya terminado alguna tarea , pulsando el recuadro morado de marcara como completada.
+Una vez que el usuario haya terminado alguna tarea , pulsando el recuadro morado se pone como completada.
 
 ![Realizado](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/realizado.gif)
 
