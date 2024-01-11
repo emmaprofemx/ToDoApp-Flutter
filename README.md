@@ -1,6 +1,6 @@
 # To Do App :dart: :white_check_mark:
-
-En este repositorio se realizo un proyecto "To Do" en el cual el usuario puede agregar y eliminar notas. A su vez puede buscar una nota en especifica mediante el buscador dentro de la app. 
+![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white) ![Dart](https://img.shields.io/badge/dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white) ![Android](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+<br>En este repositorio se realizo un proyecto "To Do" en el cual el usuario puede agregar y eliminar notas. A su vez puede buscar una nota en especifica mediante el buscador dentro de la app. 
 
 ## Ventana de inicio de la App
 
