@@ -6,13 +6,13 @@
 
 ## Ventana de inicio de la App
 
-Se puede observar una captura de pantalla del inicio de la aplicación.
+A screenshot of the application startup can be seen.
 
 ![Interfaz principal](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/vtn75menos.png)
 
 ## Agregando
 
-El usuario puede agregar una nota mediante el TextBox y pulsando el boton de añadir.
+The user can add a note using the TextBox and clicking the add button.
 
 
 ![Agregando](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/agregando.gif)
