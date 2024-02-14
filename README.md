@@ -4,32 +4,32 @@
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 <br>In this repository a "To Do" project was created in which the user can add and delete notes. At the same time, the user can search for a specific note using the search engine inside the app.
 
-## Ventana de inicio de la App
+## App home window
 
 A screenshot of the application startup can be seen.
 
 ![Interfaz principal](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/vtn75menos.png)
 
-## Agregando
+## Add
 
 The user can add a note using the TextBox and clicking the add button.
 
 
 ![Agregando](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/agregando.gif)
 
-## Buscando
+## Searching Note
 
 El usuario puede buscar una nota , en la barra superior ingresa la palabra y le arrojara las notas que tengan dicha palabra.
 
 ![Buscando](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/buscando.gif)
 
-## Realizado
+## Ready
 
 Una vez que el usuario haya terminado alguna tarea , pulsando el recuadro morado se pone como completada.
 
 ![Realizado](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/realizado.gif)
 
-## Eliminando
+## Deleted
 
 Por ultimo , el usuario una vez realizada la tarea puede eliminarla pulsando el boton que aparece alado de cada tarea.
 
