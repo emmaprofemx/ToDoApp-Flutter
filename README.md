@@ -19,19 +19,19 @@ The user can add a note using the TextBox and clicking the add button.
 
 ## Searching Note
 
-El usuario puede buscar una nota , en la barra superior ingresa la palabra y le arrojara las notas que tengan dicha palabra.
+The user can search for a note, enter the word in the upper bar and it will show the notes that have that word.
 
 ![Buscando](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/buscando.gif)
 
 ## Ready
 
-Una vez que el usuario haya terminado alguna tarea , pulsando el recuadro morado se pone como completada.
+Once the user has finished a task, clicking on the purple box sets it as completed.
 
 ![Realizado](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/realizado.gif)
 
 ## Deleted
 
-Por ultimo , el usuario una vez realizada la tarea puede eliminarla pulsando el boton que aparece alado de cada tarea.
+Finally, the user can delete the task by clicking on the button next to each task.
 
 ![Eliminando](https://github.com/emmaprofemx/ToDoApp-Flutter/blob/main/capturas/eliminando.gif)
 
